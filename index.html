@@ -191,7 +191,49 @@
 							</aside>
 						</ul>
 					</section>
-					
+					<section>
+							<h2>vamos a explorar un contenedor</h2>
+							<pre><code data-trim>$ docker ps </code></pre>
+							<pre class="fragment"><code data-trim>$ docker ps -a</code></pre>
+							<pre class="fragment"><code data-trim>$ docker inspect [IDcontenedor]/[nombreDelContenedor]</code></pre>
+							<pre class="fragment"><code data-trim>$ docker inspect -f ‘{{ json .Config.Env}}’  [IDcontenedor]/[nombreDelContenedor]</code></pre>
+							<pre class="fragment"><code data-trim>$ docker rename [oldName] [newName]</code></pre>
+							<pre class="fragment"><code data-trim>$ docker logs [nombreDelContenedor]/[IDcontenedor]</code></pre>
+							<pre class="fragment"><code data-trim>$ docker rm [nombreDelContenedor]/[IDcontenedor]</code></pre>
+							<pre class="fragment"><code data-trim>$ docker rm $(docker ps -aq)</code></pre>
+							<aside class="notes">
+								go es el lenguage que esta escrito docker, el filtro usa la notacion de filtros de go
+							</aside>
+					</section>
+					<section>
+						<h2>Hagamoslo mas intersante</h2>
+						<pre><code data-trim>$ docker run ubuntu</code></pre>
+						<pre class="fragment"><code data-trim>$ docker run -it ubuntu</code></pre>
+						<img class="fragment" src="https://media.giphy.com/media/vLq5FWMjfN47S/giphy.gif" alt="wooo">
+						<aside class="notes">
+								Va a iniciar y se ba a apagar por que como no tiene nada de donde recibir ni donde mandar pues se apaga.
+								<br>
+								la forma Iterativa dice "Quiero que im terminal sea el standar input y estandar output"
+						</aside>
+					</section>
+					<section>
+						<h2>el Ciclo de un Contendor</h2>
+						<pre><code data-trim>$ docker run ubuntu tail -f /dev/null</code></pre>
+						<p class="fragment">
+								Para correr un comando en un Contenedor existente se usa exec
+								<pre class="fragment"><code data-trim>$ docker exec -it [nombreDelContenedor]/[IDcontendor] bash</code></pre>
+								<pre class="fragment"><code data-trim>ubuntu@host:$ ps // procesos de la sesión</code></pre>
+								<pre class="fragment"><code data-trim>ubuntu@host:$ ps -fea // procesos de todas las sesiones</code></pre>
+						</p>
+						<aside class="notes">
+								// tail = escupe el estandarOUTPUt  
+								-f = follow queda esperando a cosa nuevas, 
+								/dev/null un barril sin fondo siempre se va a quedar esperando
+
+								Todo contendor tiene un Root comand cuando eso haga exit se va a Apagar el contenedor ENTONCES 
+								cuando un contenedor se Apaga es o porque este comando hizo exit, se detuvo, murio o termino de hacer lo que tenia que hacer 
+						</aside>
+					</section>
 				</section>
 				<!-- NOTES -->
 				<section>
