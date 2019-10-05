@@ -77,6 +77,31 @@
 					</section>
 					<section data-background="img/ahora.jpg" data-background-size="1000px">
 						<h2>Solucion</h2>
+						<aside class="notes">
+								Se penso en una solucion,con el concepto de virutualizacion
+						</aside>
+					</section>
+					<section>
+						<h3>Docker</h3>
+						<p class="fragment"><em style="color:red;">NO</em> es una VM (virtual machine)</p>
+					</section>
+					<section>
+							<h3>Que es una maquina virtual</h3>
+							<p>es una simulación de un SO dentro de una maquina física</p>
+							<ul>
+								<li class="fragment"><strong><a>PESADAS</a></strong>: siempre rondan por los GB, muchas VMS en el mismo host repiten dependencias</li>
+								<li class="fragment"><strong><a>ADMINISTRACION COSTOSA</a></strong>:se dministrara la seguridad interna entre aplicaciones  y tienen que manejarse como otro computador mas</li>
+								<li class="fragment"><strong><a>"LENTAS"</a></strong>: Correr nuestras códigos en una VM implica Arrancar nuestra maquina y hacer el boot de la VM</li>
+							</ul>
+					</section>
+					<section>
+						<img src="img/docker.jpeg" alt="Docker log">
+						<h3>Trae los conceptos de <strong><a>Contenedores</a></strong></h3>
+						<ul>
+							<li class="fragment"><strong><a>VERSATILES</a></strong>: Están en el orden de los MB,Funcionan = en cualquier lado, tienen todas las dependencias para funcionar correctamente</li>
+							<li class="fragment"><strong><a>EFICIENTES</a></strong>: Comparten archivos inmutables con otros contenedores,Solo se ejecutan Procesos no un Sistema operativo completo</li>
+							<li class="fragment"><strong><a>"AISLADAS"</a></strong>: Lo que pasa en el contenedor se queda en el contenedor, No pueden alterar su entorno (amenos que explícitamente se le indique lo contrario)</li>
+						</ul>
 					</section>
 				</section>
 
