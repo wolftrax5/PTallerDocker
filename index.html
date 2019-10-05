@@ -236,6 +236,28 @@
 						</aside>
 					</section>
 				</section>
+				<section>
+					<section>
+						<h1>Exponiendo ...Contenedores </h1>
+						<pre ><code data-trim>$ docker run -d —name server1 nginx</code></pre>
+						<aside class="notes">
+								//$ docker run -d --name [name] [image] //
+								Ejecutar el servidor web nginx, y con el marcador -d (–detach), 
+								ignora si hay algún proceso que tiene salida, y mantén el contendero en ejecución y a mí retórname al batch.
+						</aside>
+					</section>
+					<section>
+							<p>Que un puerto este abierto en el contenedor no implica 
+								que este esperando en la maquina, 
+								hay que indicarlo <strong>explícitamente</strong></p>
+							<pre ><code data-trim>docker run -d --name [name] -p [puerto en PC/8080]:[puerto de contenedor/80][imagen/nginx]</code></pre>
+							<img class="fragment" src="https://media.giphy.com/media/idFxmiV2dayJEqzXaW/giphy.gif" alt="ea ea">
+							<aside class="notes">
+									Ejecutar un contendor, y asignar el puerto “virtual” del contenedor a un puerto real del computador
+									Hacerlo otra ves, pero con diferente nombre y diferente puerto
+							</aside>
+						</section>
+				</section>
 				<!-- NOTES -->
 				<section>
 					<h2>Heads Up</h2>
