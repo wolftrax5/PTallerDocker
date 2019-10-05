@@ -163,6 +163,36 @@
 								El entorno de docker, casi todo se ve desde la UI
 						</aside>
 				</section>
+				<!-- ARQUITECTURA -->
+				<section>
+					<section data-background="http://giphygifs.s3.amazonaws.com/media/EldfH1VJdbrwY/giphy.gif">
+						<h1>Tu primer contenedor</h1>
+						<pre><code data-trim>$ docker run hello-world</code></pre>
+						<aside class="notes">
+							La arquitectura de Docker funciona cliente - servidor y además utiliza ‘daemon’ al conectarse con los contenedores.
+
+							Los servicios en windows se llaman “daremos" en linux y en toda la familia *NIX, 
+							En todo SO pueden iniciarse o detenerse
+							Docker es un Servicio por lo que se necesita correr para usar sus comandos 
+						</aside>
+					</section>
+					<section>
+						<h1>Que es un Contenedor</h1>
+						<img width="300" height="200px" src="img/procesos.png" alt="conenedor de docker">
+						<ul>
+							<li class="fragment">Una agrupación de procesos que se ejecutan de forma nativa como cualquier otra aplicación en la máquina host.</li>
+							<li class="fragment">Un contenedor es una entidad lógica</li>
+							<li class="fragment">Un contenedor ejecuta sus procesos de forma nativa</li>
+							<li class="fragment">Solo Cuenta con lo que se corrio</li>
+							<aside class="notes">
+									Lo unico que se comparte entre una maquina host y un contenedor es el kernel del SO, 
+									por eso docker corre de forma nativa nativa en linux por que utiliza el kernel de linux, 
+									la version de mac y windows son lo que seria la virtualizacion  
+							</aside>
+						</ul>
+					</section>
+					
+				</section>
 				<!-- NOTES -->
 				<section>
 					<h2>Heads Up</h2>
