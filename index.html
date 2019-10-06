@@ -250,13 +250,69 @@
 							<p>Que un puerto este abierto en el contenedor no implica 
 								que este esperando en la maquina, 
 								hay que indicarlo <strong>explícitamente</strong></p>
-							<pre ><code data-trim>docker run -d --name [name] -p [puerto en PC/8080]:[puerto de contenedor/80][imagen/nginx]</code></pre>
+							<pre ><code data-trim>docker run -d \ 
+--name [name] \
+-p [puerto en PC/8080]:[puerto de contenedor/80] \ 
+[imagen/nginx]</code></pre>
 							<img class="fragment" src="https://media.giphy.com/media/idFxmiV2dayJEqzXaW/giphy.gif" alt="ea ea">
 							<aside class="notes">
 									Ejecutar un contendor, y asignar el puerto “virtual” del contenedor a un puerto real del computador
 									Hacerlo otra ves, pero con diferente nombre y diferente puerto
 							</aside>
 						</section>
+				</section>
+				<!-- DATOS Volumenes-->
+				<section>
+					<section>
+						<h2>Pero y el uso intencivo de Datos</h2>
+						<pre ><code data-trim>$ docker run -d —name db mongo</code></pre>
+						<pre><code data-trim contenteditable class="fragment">
+								$ docker exec -it nombreDelConenedor bash
+
+	root@[IDcontenedor]:/# mongo
+							
+	> use MYdb
+							
+	> db.user.insert({“name”:  “Oliver Atom”})
+							
+	> db.user.find()
+						</code></pre>
+					</section>
+					<section>
+						<h2>Que pasa con esos Datos</h2>
+						<ul>
+							<li class="fragment">Si se detiene el contenedor </li>
+							<li class="fragment">Y Si se remueve</li>
+							<img class="fragment" src="https://media.giphy.com/media/Ty9Sg8oHghPWg/giphy-downsized.gif" alt="no data">
+						</ul>
+						
+					</section>
+					<section>
+							<h2>Persistan Datos Persistaaan !!</h2>
+							<pre ><code data-trim>$ mkdir mongodata</code></pre>
+							<pre ><code data-trim>$ docker run --name myDB -d -v [path del host]:[path del contenedor] mongo // /data/db en mongo</code></pre>
+							<img class="fragment" src="https://media.giphy.com/media/RrVzUOXldFe8M/giphy.gif" alt="data">
+							<aside class="notes">
+								* inpecciona el contenedor antes de de terminar
+								* y agrega un archivo ala carpeta para explicar el mirro bind
+							</aside>
+					</section>
+					<section>
+						<h1><a target="_blank" href="https://docs.docker.com/storage/">Tenemos maaas !!</a></h1> 
+						<ul>
+							<li>Bind mount</li>
+							<li>Volume</li>
+							<li>tmpfs mount</li>
+						</ul>
+						<pre class="fragment" ><code data-trim>$ docker volume ls</code></pre>
+						<pre class="fragment" ><code data-trim>$ docker volume prune </code></pre>
+						<pre class="fragment" ><code data-trim>$ docker volume create dbdata</code></pre>
+						<pre class="fragment" ><code data-trim>$ docker run -d --name myBD --mount src=dbdata,dst=/data/db mongo</code></pre>
+						<aside class="notes">
+								Al especificar un volumen docker nos da herramientas de migrar un volumen de una computador a otra, 
+								también nos ofrece distintos drivers lo que nos permite hacer conexiones de lugares remotos
+							</aside>
+					</section>
 				</section>
 				<!-- NOTES -->
 				<section>
