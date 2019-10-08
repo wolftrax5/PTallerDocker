@@ -319,10 +319,41 @@
 					<section>
 						<h2>Y Que es una Imagne</h2>
 						<ul>
-							<li>Las imágenes son plantillas, templates para que los contenedores,<br> es un componente fundamental de Docker</li>
+							<li>Las imágenes son <a target="_blank" href="https://hub.docker.com/">plantillas</a>, templates para que los contenedores,<br> es un componente fundamental de Docker</li>
 							<li>Es un conjunto de capas o layers, siempre tiene una capa base </li>
 							<li>Cada capa es inmutable y cada capa aplica solo una pequeaña diferencia sobre la anterior a nivel file sistem <u>(como los commits en los repositorio git)</u></li>
 						</ul>
+					</section>
+					<section>
+							<pre><code data-trim>$ docker pull redis</code></pre>
+							<pre class="fragment"><code data-trim>$ docker image ls</code></pre>
+							<aside class="notes">
+									NOTA: descarga distintas tags de una imagen
+							</aside>
+					</section>
+					<section>
+						<h2>Crea Tu molde</h2>
+						<p>Siempre se necesita un DockerFile</p>
+						<ul>
+							<li>
+								Es la reseta de como debe esta construida tu imagen
+							</li>
+							<li>
+								Siempre debe de iniciar con un “FROM” siempre se necesita una capa base
+							</li>
+							<li>
+								Docker - **Build** -> Image -> Run -> Contenedor
+							</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Comandos en Docker File</h3>
+						<p> DOCKER FILE <br>
+							FROM : es de que imagen base se va a construir <br>
+							COPY: partiendo del contexto del Build va acopiar los archivos a la imagen nueva <br>
+							WORKDIR: es como un “ cd “ en linea de comandos <br>
+							EXPOSE: que puertos se van a exponer <br>
+							CMD: command.  Comando por defecto cuando se construye la imagen.</p>
 					</section>
 				</section>
 			</div>
