@@ -367,7 +367,7 @@
 						<h2>Tengo todos mis contenedores</h2>
 						<h3>Pero aislados</h3>
 						<pre class="fragment" ><code data-trim>$ docker network ls</code></pre>
-						<pre class="fragment" ><code data-trim>$ docker network create [nombreRed]</code></pre>
+						<pre class="fragment" ><code data-trim>$ docker network create --attachable [nombreRed]</code></pre>
 						<pre class="fragment" ><code data-trim>$ docker network conect [nombreRed] [nombreContenedor]</code></pre>
 						<pre class="fragment" ><code data-trim>$ docker run --network [nombreRed] --name [nombreContenedor] [nombre IMAGEN]</code></pre>
 					</section>
