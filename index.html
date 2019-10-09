@@ -370,6 +370,13 @@
 						<pre class="fragment" ><code data-trim>$ docker network create --attachable [nombreRed]</code></pre>
 						<pre class="fragment" ><code data-trim>$ docker network conect [nombreRed] [nombreContenedor]</code></pre>
 						<pre class="fragment" ><code data-trim>$ docker run --network [nombreRed] --name [nombreContenedor] [nombre IMAGEN]</code></pre>
+						<pre class="fragment" ><code data-trim>$ docker network inspect [nombreRed]</code></pre>
+					</section>
+					<section>
+						<h2>Conectando Contenedores</h2>
+						<pre><code data-trim>$ docker run -d --name superapp -p 3000:3000 --env MONGO_URL=mongodb://[NombreContenedor]:27017/test [nombreImange]</code></pre>
+						<p class="fragment">Si lo conectaste a la red ?</p>
+						<pre class="fragment" ><code data-trim>$ docker network conect [nombreRed] [nombreContenedor]</code></pre>
 					</section>
 				</section>
 				<!-- Creditos -->
